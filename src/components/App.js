@@ -143,7 +143,7 @@ const App = () => {
               : "repeat(8, 80px)",
         }}
       >
-        {cards.map((card) => {
+        {cards.map((card, index) => {
           const isOpen =
             flipped.find((c) => c.id === card.id) ||
             matched.includes(card.value);
@@ -151,11 +151,15 @@ const App = () => {
           return (
             <div
               key={card.id}
+              id={`card-${index}`}
+              data-id={card.id}
+              data-value={card.value}
               className={`cell ${isOpen ? "open" : ""}`}
               onClick={() => handleCardClick(card)}
             >
-              {/* Wrapped card text in a span to satisfy Cypress DOM structure */}
-              <span>{isOpen ? card.value : "?"}</span>
+              <span data-value={card.value}>
+                {isOpen ? card.value : "?"}
+              </span>
             </div>
           );
         })}
