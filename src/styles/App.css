@@ -1,1 +1,85 @@
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
+}
+
+.app {
+  text-align: center;
+}
+
+.levels_container {
+  margin-top: 60px;
+}
+
+.levels_container h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.levels_container h2 {
+  margin-bottom: 25px;
+}
+
+.levels_container label {
+  display: block;
+  font-size: 20px;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.levels_container input[type="radio"] {
+  margin-right: 10px;
+}
+
+.levels_container button {
+  margin-top: 25px;
+  padding: 10px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+.levels_container button:hover {
+  background: #125ea8;
+}
+
+.cells_container {
+  display: grid;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  background: #3498db;
+  border-radius: 8px;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.cell:hover {
+  background: #2980b9;
+}
+
+.cell.open {
+  background: #2ecc71;
+}
+
+h2 {
+  text-align: center;
+}
