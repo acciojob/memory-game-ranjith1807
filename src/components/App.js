@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./../styles/App.css";
 
+// Updated to match required tile counts: Easy (8), Normal (16), Hard (32)
 const levelConfig = {
-  easy: 4,
-  normal: 8,
-  hard: 16,
+  easy: 8,
+  normal: 16,
+  hard: 32,
 };
 
 const App = () => {
@@ -84,6 +85,7 @@ const App = () => {
         <label>
           <input
             type="radio"
+            id="easy"
             name="level"
             value="easy"
             checked={selectedLevel === "easy"}
@@ -95,6 +97,7 @@ const App = () => {
         <label>
           <input
             type="radio"
+            id="normal"
             name="level"
             value="normal"
             checked={selectedLevel === "normal"}
@@ -106,6 +109,7 @@ const App = () => {
         <label>
           <input
             type="radio"
+            id="hard"
             name="level"
             value="hard"
             checked={selectedLevel === "hard"}
@@ -130,8 +134,10 @@ const App = () => {
         style={{
           gridTemplateColumns:
             level === "easy"
-              ? "repeat(2, 80px)"
-              : "repeat(4, 80px)",
+              ? "repeat(4, 80px)"
+              : level === "normal"
+              ? "repeat(4, 80px)"
+              : "repeat(8, 80px)",
         }}
       >
         {cards.map((card) => {
