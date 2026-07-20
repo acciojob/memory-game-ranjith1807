@@ -127,7 +127,8 @@ const App = () => {
 
   return (
     <div>
-      <h2>{level.toUpperCase()} LEVEL</h2>
+      {/* Changed h2 to h4 to satisfy Cypress assertions */}
+      <h4>{level.toUpperCase()} LEVEL</h4>
 
       <div
         className="cells_container"
