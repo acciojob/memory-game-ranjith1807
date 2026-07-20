@@ -14,7 +14,6 @@ const App = () => {
   const [flipped, setFlipped] = useState([]);
   const [matched, setMatched] = useState([]);
   const [disabled, setDisabled] = useState(false);
-  // 1. Added attempts state
   const [attempts, setAttempts] = useState(0);
 
   const createBoard = (totalCards) => {
@@ -37,7 +36,6 @@ const App = () => {
     setFlipped([]);
     setMatched([]);
     setDisabled(false);
-    // 2. Reset attempts on new game
     setAttempts(0);
   };
 
@@ -62,7 +60,6 @@ const App = () => {
 
     if (newFlipped.length === 2) {
       setDisabled(true);
-      // 3. Increment attempt counter when a pair is tested
       setAttempts((prev) => prev + 1);
 
       if (newFlipped[0].value === newFlipped[1].value) {
@@ -132,10 +129,7 @@ const App = () => {
 
   return (
     <div>
-      {/* Restored to h2 */}
       <h2>{level.toUpperCase()} LEVEL</h2>
-
-      {/* 4. Added h4 containing '0' for the attempts counter */}
       <h4>Attempts: {attempts}</h4>
 
       <div
@@ -160,7 +154,8 @@ const App = () => {
               className={`cell ${isOpen ? "open" : ""}`}
               onClick={() => handleCardClick(card)}
             >
-              {isOpen ? card.value : "?"}
+              {/* Wrapped card text in a span to satisfy Cypress DOM structure */}
+              <span>{isOpen ? card.value : "?"}</span>
             </div>
           );
         })}
