@@ -152,14 +152,10 @@ const App = () => {
             <div
               key={card.id}
               id={`card-${index}`}
-              data-id={card.id}
-              data-value={card.value}
               className={`cell ${isOpen ? "open" : ""}`}
               onClick={() => handleCardClick(card)}
             >
-              <span data-value={card.value}>
-                {isOpen ? card.value : "?"}
-              </span>
+              <span>{isOpen ? card.value : "?"}</span>
             </div>
           );
         })}
